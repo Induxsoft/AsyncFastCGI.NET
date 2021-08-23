@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
         <LangVersion>7.3</LangVersion>
 
         <PackageId>AsyncFastCGI.NET</PackageId>
@@ -16,7 +16,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="lib/*.cs" Pack="true"/>
-        <None Include="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+        <Compile Include="lib/*.cs" Pack="true" />
+        <None Include="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
     </ItemGroup>
 </Project>
