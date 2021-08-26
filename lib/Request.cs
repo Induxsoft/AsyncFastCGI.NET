@@ -19,7 +19,7 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 
 namespace AsyncFastCGI {
-    class Request {
+    public class Request {
         private int index;
         private Record inputRecord;
         private Record outputRecord;

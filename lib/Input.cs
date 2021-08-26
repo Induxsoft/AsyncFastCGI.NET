@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace AsyncFastCGI
 {
-    class Input {
+    public class Input {
         private Socket socket;
         private Record inputRecord;
         private NetworkStream stream;

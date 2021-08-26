@@ -24,7 +24,7 @@ namespace AsyncFastCGI {
     /// the client application for output, and in the input data
     /// processing.
     /// </summary>
-    class FifoStream {
+    public class FifoStream {
         /// <summary>
         /// The amount of data in the stream,
         /// which hasn't been read.

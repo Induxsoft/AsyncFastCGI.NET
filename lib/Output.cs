@@ -22,7 +22,7 @@ using System.Text;
 
 namespace AsyncFastCGI
 {
-    class Output {
+    public class Output {
         private Input input;
         private Socket connection;
         private NetworkStream stream;

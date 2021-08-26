@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 
 namespace AsyncFastCGI {
-    class Record {
+    public class Record {
         /*
             Size constraints
         */

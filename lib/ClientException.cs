@@ -6,7 +6,7 @@ namespace AsyncFastCGI
     /// All exceptions thrown by the AsyncFastCGI.NET library
     /// are of this type.
     /// </summary>
-    class ClientException : Exception {
+    public class ClientException : Exception {
         public ClientException(string message): base(message) {
 
         }

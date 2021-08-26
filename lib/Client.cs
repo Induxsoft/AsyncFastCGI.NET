@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
 namespace AsyncFastCGI
 {
-    class Client
+    public class Client
     {
         public delegate Task RequestHandlerDelegate(AsyncFastCGI.Input input, AsyncFastCGI.Output output);
 
