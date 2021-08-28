@@ -31,6 +31,8 @@ namespace AsyncFastCGI
         private bool ended;
         private bool headerSent;
         private Dictionary<string, string> header;
+        private Dictionary<string, string> cookie;
+
         private int httpStatus = 200;
         private FifoStream outputBuffer;
 
@@ -45,6 +47,7 @@ namespace AsyncFastCGI
             this.stream = stream;
             this.requestID = requestID;
             this.header = new Dictionary<string, string>();
+            this.cookie = new Dictionary<string, string>();
             this.outputBuffer = outputBuffer;
             this.outputBuffer.Reset();
             this.record = record;
@@ -156,6 +159,11 @@ namespace AsyncFastCGI
             this.header[name] = value;
         }
 
+        public void SetCookie(string name, string value)
+        {
+            this.cookie[name] = value;
+        }
+
         /// <summary>
         /// Writes the HTTP header into the output buffer.
         /// Call it after the first call to a "Write" method.
@@ -176,6 +184,13 @@ namespace AsyncFastCGI
             {
                 this.outputBuffer.Write(
                     Encoding.UTF8.GetBytes($"{entry.Key}: {entry.Value}\r\n")
+                );
+            }
+
+            foreach (KeyValuePair<string, string> entry in this.cookie)
+            {
+                this.outputBuffer.Write(
+                    Encoding.UTF8.GetBytes($"Set-Cookie: {entry.Key}={entry.Value}\r\n")
                 );
             }
 
