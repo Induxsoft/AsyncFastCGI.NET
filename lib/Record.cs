@@ -215,25 +215,31 @@ namespace AsyncFastCGI {
             */
             UInt16 length;
 
-            if (fifo == null) {
+            if (fifo == null)
+            {
                 length = 0;
-            } else {
+            }
+            else
+            {
                 length = (UInt16)fifo.Read(Record.MAX_CONTENT_SIZE, this.buffer, 8);
             }
-            
+
             /*
                 Set header
             */
             this.buffer[0] = (byte)1;               // Version
             this.buffer[1] = (byte)TYPE_STDOUT;     // Type
 
-            if (isLittleEndian) {
+            if (isLittleEndian)
+            {
                 this.buffer[2] = (byte)(requestID >> 8);      // Request ID 1
                 this.buffer[3] = (byte)(requestID & 0x00FF);  // Request ID 0
 
                 this.buffer[4] = (byte)(length >> 8);         // Content Length 1
                 this.buffer[5] = (byte)(length & 0x00FF);     // Content Length 0
-            } else {
+            }
+            else
+            {
                 this.buffer[2] = (byte)(requestID << 8);      // Request ID 1
                 this.buffer[3] = (byte)(requestID & 0xFF00);  // Request ID 0
 
@@ -247,6 +253,7 @@ namespace AsyncFastCGI {
             this.bufferEnd = 8 + length;
 
             return length;
+            
         }
 
         /// <summary>

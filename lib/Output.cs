@@ -56,7 +56,7 @@ namespace AsyncFastCGI
             this.header["Content-Type"] = "text/html; charset=utf-8";
             this.header["Cache-Control"] = "no-cache";
             this.header["Date"] = DateTime.Today.ToUniversalTime().ToString("r");
-            this.header["Server"] = "AsyncFastCGI.NET";
+            this.header["Server"] = "Devkron FastCGI";
         }
 
         /// <summary>
@@ -202,7 +202,9 @@ namespace AsyncFastCGI
                 }
 
                 this.record.STDOUT(this.requestID, this.outputBuffer);
+
                 try {
+                    
                     await this.record.sendAsync(this.stream);
                 } catch (Exception e) {
                     Console.WriteLine(e.ToString());
