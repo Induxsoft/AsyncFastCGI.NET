@@ -222,7 +222,7 @@ namespace AsyncFastCGI
                     
                     await this.record.sendAsync(this.stream);
                 } catch (Exception e) {
-                    Console.WriteLine(e.ToString());
+                    Console.Error.WriteLine(e.ToString());
                     this.ended = true;
                 }
             }
